@@ -1,0 +1,25 @@
+{
+  "name": "yi-task",
+  "version": "1.0.0",
+  "description": "用于控制任务并发执行和定时执行",
+  "keywords": [
+    "task",
+    "parallel",
+    "crontab"
+  ],
+  "author": "avicha",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/avicha/task.git"
+  },
+  "main": "./index",
+  "engines": {
+    "node": ">= 0.4.x"
+  },
+  "dependencies": {
+    "underscore" :  "1.4.4"
+  },
+  "devDependencies": {
+    "coffee-script": "1.4.0"
+  }
+}
