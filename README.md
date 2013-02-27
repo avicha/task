@@ -33,7 +33,7 @@ var login_task = new Task('handle the user login',100,function(username,password
 login_task.push('Avicha','123456');
 
 //batch push user
-login_task.push([['Avicha','123456'],['Yi','654321'],['other_user','their_password']]);
+login_task.pushAll([['Avicha','123456'],['Yi','654321'],['other_user','their_password']]);
 ```
 
 结束任务，当所有任务执行完毕后执行回调函数
@@ -76,4 +76,7 @@ crontab.run();
 ```
 
 停止crontab并退出进程
+
+```javascript
 crontab.stop();
+```
