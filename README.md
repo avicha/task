@@ -46,7 +46,7 @@ login_task.end(function(infos){
 ```
 * Crontab，这是一个类似于crontab的模块，用于定时某个时候执行一个指定的函数。
 
-引入Dailytask类
+引入Crontab类
 
 ```javascript
 var Crontab = require('yi-task').Crontab;
