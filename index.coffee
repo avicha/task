@@ -66,22 +66,18 @@ class Task extends EventEmitter
                     self.complete.apply self,arguments
                 self.todo.apply self,argvs
         self
-    push:(argvs...,callback)->
+    push:(argvs...)->
         self = @
-        if !_.isFunction callback
-            argvs.push callback
         self.queue.push argvs
         self.sumNum++
         self.emit 'do'
-        callback self.info() if _.isFunction callback
         self
-    pushAll:(vals,callback)->
+    pushAll:(vals)->
         self = @
         self.queue = self.queue.concat vals
         self.sumNum += vals.length
         vals.forEach (val)->
             self.emit 'do'
-        callback self.info() if _.isFunction callback
         self
     complete:(success=1,error=0)->
         self = @

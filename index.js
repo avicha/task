@@ -98,22 +98,16 @@
     }
 
     Task.prototype.push = function() {
-      var argvs, callback, self, _i;
-      argvs = 2 <= arguments.length ? __slice.call(arguments, 0, _i = arguments.length - 1) : (_i = 0, []), callback = arguments[_i++];
+      var argvs, self;
+      argvs = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
       self = this;
-      if (!_.isFunction(callback)) {
-        argvs.push(callback);
-      }
       self.queue.push(argvs);
       self.sumNum++;
       self.emit('do');
-      if (_.isFunction(callback)) {
-        callback(self.info());
-      }
       return self;
     };
 
-    Task.prototype.pushAll = function(vals, callback) {
+    Task.prototype.pushAll = function(vals) {
       var self;
       self = this;
       self.queue = self.queue.concat(vals);
@@ -121,9 +115,6 @@
       vals.forEach(function(val) {
         return self.emit('do');
       });
-      if (_.isFunction(callback)) {
-        callback(self.info());
-      }
       return self;
     };
 
