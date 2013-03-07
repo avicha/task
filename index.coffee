@@ -8,7 +8,7 @@ class Task extends EventEmitter
         self = @
         self.endTime = Date.now()
         self.sumTime = self.endTime - self.startTime
-        self.avgTime = self.sumTime / self.completeNum?=1
+        self.avgTime = self.sumTime / (self.completeNum?=1)
         infos = 
             '任务名称' : self.name
             '任务总数' : self.sumNum
@@ -86,7 +86,7 @@ class Task extends EventEmitter
         self.failNum += error
         self.successNum += success
         if self.ended&&(self.completeNum == self.sumNum)
-            self.endedFunc self.info true
+            self.endedFunc self.info
         else
             self.emit 'do'
         self
@@ -96,7 +96,7 @@ class Task extends EventEmitter
             self.endedFunc = func
         self.ended = true
         if self.sumNum ==self.completeNum
-            self.endedFunc self.info true
+            self.endedFunc self.info
         self
 module.exports.Task = Task
 #定时运行任务控制，类似于crontab，但更加灵活，可以运行不同的函数
