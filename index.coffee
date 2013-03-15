@@ -142,8 +142,7 @@ class Crontab
                 _.each now,(val,key,obj)->
                     #如果单纯数字
                     if task[key] != '*'
-                        if (/^\D+$/.test task[key]) && now[key] != parseInt(task[key]) 
-                            console.log 'aaaaaaa'
+                        if (/^\d+$/.test task[key]) && now[key] != parseInt(task[key]) 
                             execute = false
                         #如果每隔num个时间段
                         if /^\*\/(\d+)$/.test task[key]

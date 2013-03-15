@@ -204,8 +204,7 @@
           _.each(now, function(val, key, obj) {
             var from, interval, range, to;
             if (task[key] !== '*') {
-              if ((/^\D+$/.test(task[key])) && now[key] !== parseInt(task[key])) {
-                console.log('aaaaaaa');
+              if ((/^\d+$/.test(task[key])) && now[key] !== parseInt(task[key])) {
                 execute = false;
               }
               if (/^\*\/(\d+)$/.test(task[key])) {
