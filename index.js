@@ -132,7 +132,7 @@
       self.failNum += error;
       self.successNum += success;
       if (self.ended && (self.completeNum === self.sumNum)) {
-        self.endedFunc(self.info);
+        self.endedFunc(self.info());
       } else {
         self.emit('do');
       }
@@ -147,7 +147,7 @@
       }
       self.ended = true;
       if (self.sumNum === self.completeNum) {
-        self.endedFunc(self.info);
+        self.endedFunc(self.info());
       }
       return self;
     };
